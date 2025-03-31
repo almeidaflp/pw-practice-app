@@ -5,6 +5,7 @@ import type { TestOptions } from './test-options';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
+require('dotenv').config()
 // import dotenv from 'dotenv';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
@@ -29,6 +30,9 @@ export default defineConfig<TestOptions>({
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'http://localhost:4200/',
     globalsQaURL: 'https://www.globalsqa.com/demo-site/draganddrop/',
+    // baseURL: process.env.DEV === '1' ? 'http://localhost:4200/'
+    //   : process.env.STAGING == '1' ? 'http://localhost:4202/'
+    //   : 'http://localhost:4200/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
