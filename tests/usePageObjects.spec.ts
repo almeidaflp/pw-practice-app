@@ -22,9 +22,9 @@ test('parametized methods @smoke', async({page}) => {
 
     await pm.navigateTo().formLayoutsPage()
     await pm.onFormsLayoutsPage().submitUsingTheGridFormWithCredentialsAndSelectOption(process.env.USERNAME, process.env.PASSWORD, 'Option 1')
-    await page.screenshot({path: 'screenshots/formLayoutsPage.png'})
-    const buffer = await page.screenshot()
-    console.log(buffer.toString('base64'))
+    // await page.screenshot({path: 'screenshots/formLayoutsPage.png'})
+    // const buffer = await page.screenshot()
+    // console.log(buffer.toString('base64'))
     await pm.onFormsLayoutsPage().submitInlineFormWithNameEmailAndCheckbox(randomFullName, randomEmail, true)
     await page.locator('nb-card', {hasText: "Inline Form"}).screenshot({path: 'screenshots/inlineForm.png'})
     await pm.navigateTo().datepickerPage()
